@@ -150,10 +150,14 @@ int kitapOduncAl(struct Kitap kitaplar[], int kitapSayisi, struct Kullanici kull
                 printf("\nStokta yeterli kitap yok!\n");
             }
             bulundu = 1;
-            break;  }}
+            break;
+        }
+    }
+
     if (!bulundu) {
         printf("\nKitap bulunamadi!\n");
     }
+
     return kitapSayisi;
 }
 
@@ -162,7 +166,9 @@ int main() {
     struct Kullanici kullanicilar[100];
     int kitapSayisi = 0;
     int kullaniciSayisi = 0;
+
     int secim;
+
     do {
         printf("\nKUTUPHANE YONETIM SISTEMI\n");
         printf("1. Kitap Ekle\n");
@@ -174,24 +180,33 @@ int main() {
         printf("0. Cikis\n");
         printf("Seciminizi yapin: ");
         scanf("%d", &secim);
+
         switch (secim) {
             case 1:
-                kitapSayisi = kitapEkle(kitaplar, kitapSayisi); break;
+                kitapSayisi = kitapEkle(kitaplar, kitapSayisi);
+                break;
             case 2:
-                kitapSayisi = kitapListele(kitaplar, kitapSayisi); break;
+                kitapSayisi = kitapListele(kitaplar, kitapSayisi);
+                break;
             case 3:
-                kitapSayisi = kitapAra(kitaplar, kitapSayisi);break;
+                kitapSayisi = kitapAra(kitaplar, kitapSayisi);
+                break;
             case 4:
-                kullaniciSayisi = kullaniciEkle(kullanicilar, kullaniciSayisi); break;
+                kullaniciSayisi = kullaniciEkle(kullanicilar, kullaniciSayisi);
+                break;
             case 5:
-                kullaniciSayisi = kullaniciListele(kullanicilar, kullaniciSayisi); break;
+                kullaniciSayisi = kullaniciListele(kullanicilar, kullaniciSayisi);
+                break;
             case 6:
-                kitapSayisi = kitapOduncAl(kitaplar, kitapSayisi, kullanicilar, kullaniciSayisi); break;
+                kitapSayisi = kitapOduncAl(kitaplar, kitapSayisi, kullanicilar, kullaniciSayisi);
+                break;
             case 0:
-                printf("Program sonlandiriliyor...\n");break;
+                printf("Program sonlandiriliyor...\n");
+                break;
             default:
                 printf("Gecersiz secim!\n");
         }
     } while (secim != 0);
+
     return 0;
 }
